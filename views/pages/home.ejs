@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: rgba(24, 26, 27, 0.999);
+            color: whitesmoke;
+            min-height: 100%;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(#2d2dff, #ff2f2f);
+            -webkit-clip-path: circle(25% at right);
+            clip-path: circle(25% at right);
+            z-index: -5;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            min-height: 100vh;
+            height: 100%;
+            background: linear-gradient(#870aec, #6e0b81);
+            clip-path: circle(30% at 10% 10%);
+            -webkit-clip-path: circle(30% at 10% 10%);
+            z-index: -5;
+        }
+
+        .box {
+            content: "";
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(#2d2dff, #df0761);
+            clip-path: circle(17% at left 97%);
+            z-index: -5;
+        }
+
+        .navbar {
+            background-color: #141313;
+            color: #fff;
+            border-bottom: 1px solid #666a6d;
+            -webkit-box-shadow: 0 10px 6px -6px rgb(0, 0, 0);
+            -moz-box-shadow: 0 10px 6px -6px rgb(0, 0, 0);
+            box-shadow: 0 8px 10px -6px rgb(0, 0, 0);
+        }
+
+        .navbar .navbar-toggler-icon::after {
+            content: "\f0c9";
+            font-family: "FontAwesome";
+            font-size: 30px;
+            color: rgb(255, 255, 255);
+        }
+
+        a {
+            color: #fff;
+        }
+
+        #tg {
+            border-color: #fff;
+        }
+
+        #st {
+            -webkit-box-shadow: 0px -4px 10px rgba(0, 0, 0);
+            -moz-box-shadow: 0px -4px 10px rgba(0, 0, 0);
+            box-shadow: 0px -4px 10px rgba(0, 0, 0);
+        }
+
+        h4 {
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        #notes {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        #lap {
+            width: 60vmin;
+            transform: translateY(0px);
+            animation: floating 3s infinite ease-in-out;
+        }
+
+        @keyframes floating {
+            from {
+                transform: translateY(0px);
+            }
+
+            65% {
+                transform: translateY(20px);
+            }
+
+            to {
+                transform: translateY(-0px);
+            }
+        }
+
+        #row {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+            height: 67vh;
+        }
+
+
+        .nav-item {
+            margin: 0 10px;
+        }
+
+        .startbtn{
+            background: white;
+    display: block;
+    margin: 20px auto;
+    height: 50px;
+    width: 250px;
+    font-size: 1.5rem;
+    font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg  text-uppercase">
+
+        <a class="navbar-brand" href="/"><img src="images/logo-transparent.png" height="100px" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/overview">Overview </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/help">Help Centers </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/page1">Test </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/stats">Results </a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div id="row">
+        <div id="svg1">
+            <img src="images/download.png" id="lap">
+        </div>
+        <div id="row">
+            <div id="str">
+                <h1 style="font-size:1.5rem">Nature despite its severity, the era that suffers from several factors
+                    (social, political, economic, health,) these factors is easy to prone to Alzheimer's.
+                    <br />
+                    Sometimes Alzheimer's is a gift to man so that he forgets his suffering.. Then he loses contact with
+                    people and factors that negatively affect his lifestyle and others.
+                    <br />
+                    <br />
+                </h1>
+                <h1 style="font-size: 2rem">"Because you matter to us please take the test."</h1>
+            </div>
+        </div>
+
+    </div>
+    
+    <a  href="/page1"><button class="startbtn">Let's get started</button></a>
+
+</body>
+
+</html>

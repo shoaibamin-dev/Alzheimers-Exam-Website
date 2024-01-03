@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Home</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<style>
+
+  *{
+    font-family: "Poppins", sans-serif !important;
+  }
+  body {
+      font-family: "Poppins", sans-serif !important;
+      background-color: rgba(24, 26, 27, 0.999);
+      color: whitesmoke;
+      min-height: 100%;
+      font-size: 1em;
+      cursor: pointer;
+  }
+
+  
+
+  
+
+  .navbar {
+      background-color: #141313;
+      color: #fff;
+      border-bottom: 1px solid #666a6d;
+      -webkit-box-shadow: 0 10px 6px -6px rgb(0, 0, 0);
+      -moz-box-shadow: 0 10px 6px -6px rgb(0, 0, 0);
+      box-shadow: 0 8px 10px -6px rgb(0, 0, 0);
+  }
+
+  .navbar .navbar-toggler-icon::after {
+      content: "\f0c9";
+      font-family: "FontAwesome";
+      font-size: 30px;
+      color: rgb(255, 255, 255);
+  }
+
+  a {
+      color: #fff;
+  }
+
+  #tg {
+      border-color: #fff;
+  }
+
+  #st {
+      -webkit-box-shadow: 0px -4px 10px rgba(0, 0, 0);
+      -moz-box-shadow: 0px -4px 10px rgba(0, 0, 0);
+      box-shadow: 0px -4px 10px rgba(0, 0, 0);
+  }
+
+  h4 {
+      text-align: center;
+      text-transform: uppercase;
+  }
+
+  #notes {
+      margin-left: 5px;
+      margin-right: 5px;
+  }
+
+  #lap {
+      width: 60vmin;
+      transform: translateY(0px);
+      animation: floating 3s infinite ease-in-out;
+  }
+
+  @keyframes floating {
+      from {
+          transform: translateY(0px);
+      }
+
+      65% {
+          transform: translateY(20px);
+      }
+
+      to {
+          transform: translateY(-0px);
+      }
+  }
+
+  #row {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      height: 67vh;
+  }
+
+
+  .nav-item {
+      margin: 0 10px;
+  }
+
+  .startbtn{
+      background: white;
+display: block;
+margin: 20px auto;
+height: 50px;
+width: 250px;
+font-size: 1.5rem;
+font-weight: bold;
+  }
+  
+table, td, th {
+border: 1px solid;
+padding:10px;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+table-layout: fixed;
+}
+
+
+*{
+font-family: Vollkorn ;
+}
+
+
+table *{
+font-size: 20px;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+</style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg  text-uppercase">
+
+    <a class="navbar-brand" href="/"><img src="images/logo-transparent.png" height="100px" /></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/overview">Overview </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/help">Help Centers </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/page1">Test </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/stats">Results </a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+
+<div style="padding: 30px; text-align: center;">
+<h1 class="heading-msg">Statistics</h1>
+<br/>
+    <% Object.keys(avgs).forEach(function(prop) { %>
+            <h3 class="heading-2"><span style="font-weight: 400">Average of people at age <%- prop %> is </span><%- (((avgs[prop].reduce((a, b) => a + b, 0) / avgs[prop].length)/26)*100).toFixed(2) %>%</h3>
+    <% }) %>
+
+</div>
+</body>
+</html>

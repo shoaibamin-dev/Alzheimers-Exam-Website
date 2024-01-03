@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+      body {
+          font-family: "Poppins", sans-serif;
+          background-color: rgba(24, 26, 27, 0.999);
+          color: whitesmoke;
+          min-height: 100%;
+          font-size: 1em;
+          cursor: pointer;
+      }
+
+      
+
+      
+
+      .navbar {
+          background-color: #141313;
+          color: #fff;
+          border-bottom: 1px solid #666a6d;
+          -webkit-box-shadow: 0 10px 6px -6px rgb(0, 0, 0);
+          -moz-box-shadow: 0 10px 6px -6px rgb(0, 0, 0);
+          box-shadow: 0 8px 10px -6px rgb(0, 0, 0);
+      }
+
+      .navbar .navbar-toggler-icon::after {
+          content: "\f0c9";
+          font-family: "FontAwesome";
+          font-size: 30px;
+          color: rgb(255, 255, 255);
+      }
+
+      a {
+          color: #fff;
+      }
+
+      #tg {
+          border-color: #fff;
+      }
+
+      #st {
+          -webkit-box-shadow: 0px -4px 10px rgba(0, 0, 0);
+          -moz-box-shadow: 0px -4px 10px rgba(0, 0, 0);
+          box-shadow: 0px -4px 10px rgba(0, 0, 0);
+      }
+
+      h4 {
+          text-align: center;
+          text-transform: uppercase;
+      }
+
+      #notes {
+          margin-left: 5px;
+          margin-right: 5px;
+      }
+
+      #lap {
+          width: 60vmin;
+          transform: translateY(0px);
+          animation: floating 3s infinite ease-in-out;
+      }
+
+      @keyframes floating {
+          from {
+              transform: translateY(0px);
+          }
+
+          65% {
+              transform: translateY(20px);
+          }
+
+          to {
+              transform: translateY(-0px);
+          }
+      }
+
+      #row {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+          justify-content: space-between;
+          align-items: center;
+          height: 67vh;
+      }
+
+
+      .nav-item {
+          margin: 0 10px;
+      }
+
+      .startbtn{
+          background: white;
+  display: block;
+  margin: 20px auto;
+  height: 50px;
+  width: 250px;
+  font-size: 1.5rem;
+  font-weight: bold;
+      }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg  text-uppercase">
+
+    <a class="navbar-brand" href="/"><img src="images/logo-transparent.png" height="100px" /></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/overview">Overview </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/help">Help Centers </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/page1">Test </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/stats">Results </a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+      
+    <div style="padding: 50px;">
+    <h2>An overview</h2>
+    <p>Alzheimer's disease has recently become a major concern. This condition affects around 45 
+    million people worldwide. Alzheimer's disease is a degenerative brain illness that primarily 
+    affects elderly adults and has no known cause or pathophysiology. Dementia is the primary 
+    cause of Alzheimer's disease, which kills brain cells over time. This sickness took away 
+    people's capacity to think, read, and do many other things. By forecasting the sickness, a 
+    machine learning system can help solve this problem. The major goal is to identify Dementia 
+    in a variety of patients.</p>
+    <p>In fact, among the neurodegenerative illnesses, Alzheimer's disease is the most common. 
+    Although the symptoms are mild at first, they get increasingly severe over time. Alzheimer's 
+    disease is the most common type of dementia. Because there is no cure for this ailment, it is a 
+    difficult one to deal with. A diagnosis of the condition is made, but only at a later stage. As a 
+    result, if the disease is predicted earlier, the disease's progression or symptoms can be slowed.</p> 
+
+    <br/>
+
+    <h2>History</h2> 
+    <p>Emil Kraepelin (1856–1926), a doctor in Germany, classified dementia into senile dementia and 
+    presenile dementia in 1910. He was the first to name the disease as 'Alzheimer's disease', after Alois 
+    Alzheimer (1864–1915), who discovered pathological features of presenile dementia while his 
+    student.</p>
+   
+    <h4 style="color: red">How does Alzheimer's disease affect the brain?</h4>
+    Alzheimer's disease causes complex brain changes, which scientists are still trying to 
+    understand. Brain changes can start a decade or more before symptoms appear. Toxic 
+    changes in the brain are occurring at this early stage of Alzheimer's, including abnormal 
+    protein buildups that form amyloid plaques and tau tangles. Neurons that were previously 
+    healthy stop functioning, lose connections with other neurons, and eventually die. 
+    Alzheimer's disease is thought to be caused by a variety of other complex brain changes. 
+    The hippocampus and entorhinal cortex, which are critical for memory formation, appear to 
+    be the first areas of the brain to be damaged. Additional parts of the brain are affected and 
+    begin to shrink as more neurons die. By the end of the process, By the final stage of 
+    Alzheimer’s, damage is widespread and brain tissue has shrunk significantly.
+
+    <img style="display: block;margin: 40px auto;" src="images/overview-1.PNG"/>
+    
+    <br/>
+    <br/>
+    <br/>
+    
+    <h2>Stages of Alzheimer's disease</h2>
+    <h5>Mild Alzheimer’s disease</h5>
+    <p>People with Alzheimer's disease experience more memory loss and other cognitive difficulties as the 
+    disease progresses. Wandering and getting lost are common problems, as are difficulties handling 
+    money and paying bills, repeating questions, taking longer to complete daily tasks, and personality 
+    and behavior changes. This is when most people are diagnosed.</p>
+    <h5>Moderate Alzheimer’s disease</h5>
+    <p>Damage occurs in areas of the brain that control language, reasoning, conscious thought, and sensory 
+    processing, such as the ability to detect sounds and smells correctly, during this stage. People's 
+    memory loss and confusion worsen, and they have trouble recognizing family and friends. They may 
+    be unable to learn new skills, complete multistep tasks such as dressing, or cope with novel situations. 
+    Additionally, people at this stage may experience hallucinations, delusions, and paranoia, as well as 
+    act rashly.</p>
+    <h5>Severe Alzheimer’s disease</h5>
+    <p>Plaques and tangles eventually spread throughout the brain, resulting in significant brain 
+    tissue shrinkage. People with severe Alzheimer's disease are unable to communicate and must 
+    rely on others to care for them. As the body shuts down near the end of life, the person may 
+    spend the majority of time in bed.</p>
+
+</div>
+</body>
+</html>

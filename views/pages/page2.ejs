@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alzheimer Disease Quiz App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
+
+        *,
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background: #eee
+        }
+
+        #regForm {
+            background-color: #ffffff;
+            margin: 0px auto;
+            font-family: Raleway;
+            padding: 40px;
+            border-radius: 10px
+        }
+
+        #register {
+            color: #6A1B9A
+        }
+
+        h1 {
+            text-align: center
+        }
+
+        input {
+            padding: 10px;
+            width: 100%;
+            font-size: 17px;
+            font-family: Raleway;
+            border: 1px solid #aaaaaa;
+            border-radius: 10px;
+            -webkit-appearance: none
+        }
+
+        .tab input:focus {
+            border: 1px solid #6a1b9a !important;
+            outline: none
+        }
+
+        input.invalid {
+            border: 1px solid #e03a0666
+        }
+
+        .tab {
+            display: none
+        }
+
+        button {
+            background-color: #6A1B9A;
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            padding: 10px 20px;
+            font-size: 17px;
+            font-family: Raleway;
+            cursor: pointer
+        }
+
+        button:hover {
+            opacity: 0.8
+        }
+
+        button:focus {
+            outline: none !important
+        }
+
+        #prevBtn {
+            background-color: #bbbbbb
+        }
+
+        .all-steps {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            width: 100%;
+            display: inline-flex;
+            justify-content: center
+        }
+
+        .step {
+            height: 40px;
+            width: 40px;
+            margin: 0 2px;
+            background-color: #bbbbbb;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            color: black;
+            opacity: 0.8;
+            font-weight: bold;
+        }
+
+        .step.active {
+            opacity: 1
+        }
+
+        .step.finish {
+            color: #fff;
+            background: #6a1b9a;
+            opacity: 1
+        }
+
+        .all-steps {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px
+        }
+
+        .thanks-message {
+            display: none
+        }
+
+        .custom-input {
+            display: flex;
+            float: right;
+        }
+
+        .custom-input input {
+            border: 0;
+            border-bottom: 1px solid;
+            border-radius: 0;
+            height: 10px;
+            width: 100px;
+        }
+
+        .memory input {
+            border: 0;
+            width: 50px;
+        }
+
+        .attention input {
+            width: 75px;
+            border: 0;
+        }
+
+        .attention .three input {
+            width: 45px;
+        }
+
+        .attention .custom-input {
+            float: left;
+        }
+
+
+
+        .language .custom-input input {
+            width: 200px;
+        }
+
+        .custom-input.input2 input {
+            width: 50px;
+        }
+
+        .naming img {
+            height: 200px;
+            width: 246px;
+        }
+
+
+
+        table tr td {
+            border: 1px solid black;
+        }
+
+        td {
+            width: 100px;
+            text-align: center
+        }
+
+        .attention .two p:nth-child(2) {
+            text-align: right;
+        }
+
+        .attention .two span {
+            font-size: 18px;
+        }
+
+        .attention .three span {
+            margin: 0 10px;
+        }
+
+
+
+        .attention .three div:nth-child(2) {
+            text-align: right;
+        }
+
+
+        .delayed-recall input {
+            width: 30px;
+            border: 0;
+        }
+
+        .delayed-recall td {
+            padding: 10px
+        }
+
+        .attention-2 span {
+            margin: 0 10px;
+            font-size: 11px;
+        }
+
+        .attention .two span {
+            cursor: pointer;
+        }
+
+        .attention-2 input {
+            width: 60px;
+        }
+
+        .d-n {
+            display: none;
+        }
+
+
+        .timer {
+            text-align: right;
+            font-size: 20px;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-8">
+                <form id="regForm">
+                    <h1 id="register">Alzheimer's Disease Activity</h1>
+                    <div class="all-steps" id="all-steps"> <span class="step c-black">1</span> <span
+                            class="step c-black">2</span> <span class="step c-black">3</span> <span
+                            class="step c-black">4</span> <span class="step c-black">5</span> <span
+                            class="step c-black">6</span> <span class="step c-black">7</span> <span
+                            class="step c-black">8</span> <span class="step c-black">9</span> <span
+                            class="step c-black">10</span> <span class="step c-black">11</span> <span
+                            class="step c-black">12</span> <span class="step c-black">13</span> <span
+                            class="step c-black">14</span> <span class="step c-black">15</span> <span
+                            class="step c-black">16</span> <span class="step c-black">17</span> <span class="step c-black">18</span> <span class="step c-black">19</span> <span class="step c-black">20</span> <span
+                            class="step c-black" style="visibility: hidden;">21</span></div>
+
+
+
+                    <div class="tab">
+                        <p class="timer">30</p>
+                        <h2 class="text-center my-3">VISIOPATIAL/EXECUTIVE</h2>
+                        <h5>See the pictures below</h5>
+                        <h5 class="should-show d-n">What do you see?</h5>
+                        <div class="row gx-5 naming">
+                            <div class="col-4">
+                                <img class="should-hide" src="images/cube.png" /><br /><br />
+                                <span class="custom-input">[<input id="v-inp-1" data-res="cube" type="text">]</span>
+                            </div>
+                            <div class="col-4">
+                                <img class="should-hide" src="images/parallelogram.jpg" /><br /><br />
+                                <span class="custom-input">[<input id="v-inp-2" data-res="parallelogram"
+                                        type="text">]</span>
+                            </div>
+                            <div class="col-4">
+                                <img class="should-hide" src="images/rhombus.jpg" /><br /><br />
+                                <span class="custom-input">[<input id="v-inp-3" data-res="rhombus" type="text">]</span>
+                            </div>
+                        </div>
+                        <br /><br />
+                    </div>
+                    <div class="tab">
+                        <h2 class="text-center my-3">NAMING</h2>
+                        <div class="row gx-5 naming">
+                            <div class="col-4">
+                                <img src="images/lion.png" /><br /><br />
+                                <span class="custom-input">[<input id="n-inp-1" data-res="lion" type="text">]</span>
+                            </div>
+                            <div class="col-4">
+                                <img src="images/hippo.jpeg" /><br /><br />
+                                <span class="custom-input">[<input id="n-inp-2" data-res="hippopotamus"
+                                        type="text">]</span>
+                            </div>
+                            <div class="col-4">
+                                <img src="images/camel2.png" /><br /><br />
+                                <span class="custom-input">[<input id="n-inp-3" data-res="camel" type="text">]</span>
+                            </div>
+                        </div>
+                        <br /><br />
+                    </div>
+                    <div class="tab">
+                        <p class="timer">30</p>
+                        <h2 class="text-center my-3">MEMORY</h2>
+                        <div class="row memory">
+                            <div class="col-4">
+                                <p>Read list of words, subject must repeat them. Do 2 trials, even if 1st trial is
+                                    successful. Do a recall after 5 minutes. </p>
+                            </div>
+                            <div class="col-8">
+                                <table class="custom-input">
+                                    <tr>
+                                        <td></td>
+                                        <td><span class="should-hide">FACE</span></td>
+                                        <td><span class="should-hide">VELVET</span></td>
+                                        <td><span class="should-hide">MOSQUE</span></td>
+                                        <td><span class="should-hide">FLOWER</span></td>
+                                        <td><span class="should-hide">RED</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>1st trial</td>
+                                        <td><input id="m-inp-1" data-res="1" type="text"></td>
+                                        <td><input id="m-inp-2" data-res="2" type="text"></td>
+                                        <td><input id="m-inp-3" data-res="3" type="text"></td>
+                                        <td><input id="m-inp-4" data-res="4" type="text"></td>
+                                        <td><input id="m-inp-5" data-res="5" type="text"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>2nd trial</td>
+                                        <td><input id="mm-inp-1" data-res="1" type="text"></td>
+                                        <td><input id="mm-inp-2" data-res="2" type="text"></td>
+                                        <td><input id="mm-inp-3" data-res="3" type="text"></td>
+                                        <td><input id="mm-inp-4" data-res="4" type="text"></td>
+                                        <td><input id="mm-inp-5" data-res="5" type="text"></td>
+                                    </tr>
+
+
+
+
+                                </table>
+                            </div>
+                        </div>
+
+                        <br /><br />
+                    </div>
+                    <div class="tab attention">
+
+                        <h2 class="text-center my-3">ATTENTION</h2>
+
+                        <div class="row">
+                            <div class="col-4">
+                                Read list of digits (1 digit/ sec.):
+                            </div>
+                            <div class="col-5">
+                                <p>Subject has to repeat them in the following order.</p>
+                                <p>Subject has to repeat them in the backward order.</p>
+                            </div>
+                            <div class="col-3">
+                                <p class="custom-input text-left">[<input id="a-inp-1" data-res="21854"
+                                        type="text">]&nbsp;&nbsp;2&nbsp;&nbsp;1&nbsp;&nbsp;8&nbsp;&nbsp;5&nbsp;&nbsp;4
+                                </p>
+                                <br />
+                                <p class="custom-input text-left">[<input id="a-inp-2" data-res="247"
+                                        type="text">]&nbsp;&nbsp;7&nbsp;&nbsp;4&nbsp;&nbsp;2</p>
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div class="two">
+                            <p>Read list of letters, the subject must tap with his hand at each letter A. No points if ≥
+                                2 errors</p>
+                            <p>
+                                &nbsp;&nbsp;<span>F</span>&nbsp;<span>B</span>&nbsp;<span>C</span>&nbsp;<span>M</span>&nbsp;<span>N</span>&nbsp;<span>A</span>&nbsp;<span>A</span>&nbsp;<span>J</span>&nbsp;<span>K</span>&nbsp;<span>L</span>&nbsp;<span>B</span>&nbsp;<span>A</span>&nbsp;<span>F</span>&nbsp;<span>A</span>&nbsp;<span>K</span>&nbsp;<span>D</span>&nbsp;<span>E</span>&nbsp;<span>A</span>&nbsp;<span>A</span>&nbsp;<span>A</span>&nbsp;<span>J</span>&nbsp;<span>A</span>&nbsp;<span>M</span>&nbsp;<span>O</span>&nbsp;<span>F</span>&nbsp;<span>A</span>&nbsp;<span>A</span>&nbsp;<span>B</span>
+                            </p>
+                        </div>
+
+                        <hr />
+
+                        <div class="row three">
+                            <div class="col-3">
+                                <p>Seriel 7 subtraction starting at 100</p>
+                            </div>
+                            <div class="col-9">
+                                <span>
+                                    <!-- [<input type="text" id="at-inp-1" data-res="84">]&nbsp;&nbsp;91 -->
+                                    [<input type="text" id="at-inp-1" data-res="93">]&nbsp;&nbsp;
+                                </span>
+                                <span>
+                                    <!-- [<input type="text" id="at-inp-2" data-res="69">]&nbsp;&nbsp;76 -->
+                                    [<input type="text" id="at-inp-2" data-res="86">]&nbsp;&nbsp;
+                                </span>
+                                <span>
+                                    <!-- [<input type="text" id="at-inp-3" data-res="82">]&nbsp;&nbsp;89 -->
+                                    [<input type="text" id="at-inp-3" data-res="79">]&nbsp;&nbsp;
+                                </span>
+                                <span>
+                                    <!-- [<input type="text" id="at-inp-4" data-res="65">]&nbsp;&nbsp;72 -->
+                                    [<input type="text" id="at-inp-4" data-res="72">]&nbsp;&nbsp;
+                                </span>
+                                <span>
+                                    [<input type="text" id="at-inp-5" data-res="65">]&nbsp;&nbsp;
+                                    <!-- [<input type="text" id="at-inp-5" data-res="58">]&nbsp;&nbsp;65 -->
+                                </span>
+                            </div>
+                        </div>
+                        <p style="text-align: right;">4 or 5 subtractions:&nbsp;&nbsp;<span>3 pts</span>,&nbsp;&nbsp; 2
+                            or 3
+                            correct:&nbsp;&nbsp;<span>2 pts</span>&nbsp;&nbsp;1 correct:&nbsp;&nbsp;<span>1
+                                pt</span>&nbsp;&nbsp;0
+                            correct:&nbsp;&nbsp;<span>0 pt</span></p>
+
+                        <br /><br />
+
+                    </div>
+                    <div class="tab language">
+                        <p class="timer">30</p>
+                        <h2 class="text-center my-3">LANGUAGE</h2>
+                        <h5>Repeat:</h5>
+                        <br />
+                        <br />
+                        <p class="custom-input "><span class="should-hide">I only know that John is one to help
+                                today.</span><span class="mx-2">[<input id="l-inp-1"
+                                    data-res="I only know that John is one to help today." type="text">]</span></p>
+                        <br />
+                        <br />
+                        <p class="custom-input"><span class="should-hide">The cat always hids under the couch when dogs
+                                were in the room.</span> <span class="mx-2">[<input id="l-inp-2"
+                                    data-res="The cat always hids under the couch when dogs were in the room."
+                                    type="text">]</span></p>
+
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+                    <div class="tab abstraction" style="font-size: 13.5px; ">
+                        <h2 class="text-center my-3">ABSTRACTION</h2>
+                        <p class="custom-input text-center">Similarity between e.g. banana - orange = fruit
+                            &nbsp;&nbsp;<span class="mx-2">[<input type="text" id="aa-inp-1" data-res="vehicle">]</span>
+                            train - bicycle
+                            &nbsp;&nbsp;<span class="mx-2">[<input type="text" id="aa-inp-2" data-res="measure">]</span>
+                            watch - ruler</p>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+
+                    <div class="tab delayed-recall" style="font-size: 13.5px; ">
+                        <h2 class="text-center my-3">DELAYED RECALL</h2>
+
+                        <div class="row">
+                            <div class="col-3">
+                                <p>Has to recall words</p>
+                                <h5>WITH NO CLUE</h5>
+                            </div>
+                            <div class="col-7">
+                                <table class="custom-input">
+                                    <tr>
+                                        <td>
+                                            <h5>FLOWER</h5>
+                                            [<input id="dr-inp-1" data-res="4" type="text">]
+                                        </td>
+                                        <td>
+                                            <h5>MOSQUE</h5>
+                                            [<input id="dr-inp-2" data-res="3" type="text">]
+                                        </td>
+                                        <td>
+                                            <h5>RED</h5>
+                                            [<input id="dr-inp-3" data-res="5" type="text">]
+                                        </td>
+                                        <td>
+                                            <h5>FACE</h5>
+                                            [<input id="dr-inp-4" data-res="1" type="text">]
+                                        </td>
+                                        <td>
+                                            <h5>VELVET</h5>
+                                            [<input id="dr-inp-5" data-res="2" type="text">]
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-2">
+                                <p>Points for UNCLUED recall only</p>
+                            </div>
+                        </div>
+
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+
+                    <div class="tab attention attention-2" style="font-size: 13.5px; ">
+                        <h2 class="text-center my-3">ORIENTATION</h2>
+                        <span>
+                            [<input id="o-inp-1" type="text">]&nbsp;&nbsp;Date
+                        </span>
+                        <span>
+                            [<input id="o-inp-2" type="text">]&nbsp;&nbsp;Month
+                        </span>
+                        <span>
+                            [<input id="o-inp-3" type="text">]&nbsp;&nbsp;Year
+                        </span>
+                        <span>
+                            [<input id="o-inp-4" type="text">]&nbsp;&nbsp;Name
+                        </span>
+                        <span>
+                            [<input id="o-inp-5" type="text">]&nbsp;&nbsp;Place
+                        </span>
+                        <span>
+                            [<input id="o-inp-6" type="text">]&nbsp;&nbsp;City
+                        </span>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+
+                    <!-- NEW QUESTIONS -->
+
+
+                    <div class="tab attention attention-3" style="font-size: 13.5px; ">
+                        <p class="timer">30</p>
+                        <br />
+                        <span>
+                            What is the year &nbsp;&nbsp;[<input id="oo-inp-1" type="text">]
+                        </span>
+                        <br />
+                        <span>
+                            What is the season? &nbsp;&nbsp;[<input id="oo-inp-2" type="text">]
+                        </span>
+                        <br />
+                        <span>
+                            What is the date? &nbsp;&nbsp;[<input id="oo-inp-3" type="text">]
+                        </span>
+                        <br />
+                        <span>
+                            What is the day? &nbsp;&nbsp;[<input id="oo-inp-4" type="text">]
+                        </span>
+                        <br />
+                        <span>
+                            What is the month? &nbsp;&nbsp;[<input id="oo-inp-5" type="text">]
+                        </span>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+
+                    <div class="tab attention attention-3" style="font-size: 13.5px; ">
+                        <p class="timer">30</p>
+                        <br />
+                        <span>
+                            Where are we now? &nbsp;&nbsp;
+                        </span>
+                        <br />
+                        <span>
+                            State? &nbsp;&nbsp;[<input id="ooo-inp-2" type="text">]
+                        </span>
+                        <br />
+                        <span>
+                            Country? &nbsp;&nbsp;[<input id="ooo-inp-3" type="text">]
+                        </span>
+                        <br />
+                        <span>
+                            Town/city? &nbsp;&nbsp;[<input id="ooo-inp-4" type="text">]
+                        </span>
+                        <br />
+                        <span>
+                            Hospital? &nbsp;&nbsp;[<input id="ooo-inp-5" type="text">]
+                        </span>
+                        <br />
+                        <span>
+                            Floor? &nbsp;&nbsp;[<input id="ooo-inp-5" type="text">]
+                        </span>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+
+                    <div class="tab">
+                        <p class="timer">10</p>
+                        <h5>Listen to the audio and write the answers</h5>
+                        <h5 class="should-show d-n">What do you hear?</h5>
+                        <br />
+                        <audio class="should-hide" controls>
+                            <source src="images/audios.mp3" type="audio/mp3">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <br />
+                        <br />
+                        <div class="row gx-5 naming">
+                            <div class="col-4">
+                                <span class="custom-input">[<input id="vv-inp-1" data-res="bicycle" type="text">]</span>
+                            </div>
+                            <div class="col-4">
+                                <span class="custom-input">[<input id="vv-inp-2" data-res="orange" type="text">]</span>
+                            </div>
+                            <div class="col-4">
+                                <span class="custom-input">[<input id="vv-inp-3" data-res="computer"
+                                        type="text">]</span>
+                            </div>
+                        </div>
+                        <br /><br />
+                    </div>
+
+                    <div class="tab">
+                        <div class="col-3">
+                            <p>I want you to count backwards from 100 by sevens ("93, 86, 79, 72, 65, ...)" </p>
+                        </div>
+                        <div class="col-9">
+                            <!-- <span class="custom-input input2">
+                                [<input type="text" id="attt-inp-1" data-res="30">]&nbsp;&nbsp;
+                            </span> -->
+                            <span class="custom-input input2">
+                                [<input type="text" id="attt-inp-2" data-res="37">]&nbsp;&nbsp;
+                            </span>
+                            <span class="custom-input input2">
+                                [<input type="text" id="attt-inp-3" data-res="44">]&nbsp;&nbsp;
+                            </span>
+                            <span class="custom-input input2">
+                                [<input type="text" id="attt-inp-4" data-res="51">]&nbsp;&nbsp;
+                            </span>
+                            <span class="custom-input input2">
+                                [<input type="text" id="attt-inp-5" data-res="58">]&nbsp;&nbsp;
+                            </span>
+                        </div>
+
+
+                        <div class="col-3 my-5">
+                            <h5>Spell WORLD backwards</h5>
+                        </div>
+                        <div class="col-9">
+                            <span class="custom-input">
+                                [<input type="text" id="atttt-inp-1" data-res="DLROW">]
+                            </span>
+                        </div>
+                        <br />
+                        <br />
+                    </div>
+
+
+                    <div class="tab">
+                        <p class="timer">20</p>
+                        <h5>Earlier I told you three names what are they?</h5>
+                        <div class="row gx-5 naming">
+                            <div class="col-4">
+                                <span class="custom-input">[<input id="vvv-inp-1" data-res="bicycle"
+                                        type="text">]</span>
+                            </div>
+                            <div class="col-4">
+                                <span class="custom-input">[<input id="vvv-inp-2" data-res="orange" type="text">]</span>
+                            </div>
+                            <div class="col-4">
+                                <span class="custom-input">[<input id="vvv-inp-3" data-res="computer"
+                                        type="text">]</span>
+                            </div>
+                        </div>
+                        <br /><br />
+                    </div>
+
+                   
+                    <div class="tab">
+                        <h5 class="text-center my-3">What are these objects</h5>
+                        <div class="row gx-5 naming">
+                            <div class="col-4">
+                                <img style="object-fit: contain" src="images/wristwatch.png" /><br /><br />
+                                <span class="custom-input">[<input id="nnn-inp-1" data-res="wristwatch"
+                                        type="text">]</span>
+                            </div>
+                            <div class="col-4">
+                                <img style="object-fit: contain" src="images/pencil.jpg" /><br /><br />
+                                <span class="custom-input">[<input id="nnn-inp-2" data-res="pencil" type="text">]</span>
+                            </div>
+                        </div>
+                        <br /><br />
+                    </div>
+
+                    <div class="tab auto-next">
+                        <p class="timer">60</p>
+                        <h6 style="text-align: right">3 Marks</h6>
+                        <h5 class="should-show d-n">Please click on next button</h5>
+                        <h5>"Take the paper in your hand, fold it in half, and put it on the floor."</h5>
+
+                        <br /><br />
+                    </div>
+
+                    <div class="tab auto-next">
+                        <p class="timer">20</p>
+                        <h6 style="text-align: right">1 Mark</h6>
+                        <h5 class="should-show d-n">Please click on next button</h5>
+                        <h5>"Please read this and do what it says".</h5>
+
+                        <br /><br />
+                    </div>
+
+
+                    <div class="tab">
+                        <p class="timer">60</p>
+                        <h6 style="text-align: right">1 Marks</h6>
+                        <h5>"Make up and write a sentence about anything" (Note: The sentence must contain a noun and a verb)</h5>
+                        <span class="custom-input">[<input id="nnnnn-inp-1" type="text" style="width:600px">]</span>
+                        <br /><br />
+                    </div>
+
+                    <div class="tab auto-next">
+                        <p class="timer">20</p>
+                        <h6 style="text-align: right">1 Marks</h6>
+                        <h5>Please copy this picture.</h5>
+                        <img src="images/diagram.png" /><br /><br />
+
+                        <br /><br />
+                    </div>
+
+                    <div class="tab">
+                        <p class="timer">60</p>
+                        <h6 style="text-align: right">3 Marks</h6>
+                        <h3>Please Add Marks</h3>
+                        <h5>"Take the paper in your hand, fold it in half, and put it on the floor."</h5>
+                        <span class="custom-input">[<input id="nnnn-inp-1" type="number">]</span>
+                        <br /><br />
+                    </div>
+
+                    <div class="tab">
+                        <p class="timer">60</p>
+                        <h6 style="text-align: right">1 Marks</h6>
+                        <h3>Please Add Marks</h3>
+                        <h5>"Please read this and do what it says" (Written instruction is close your eyes).</h5>
+                        <span class="custom-input">[<input id="nnnn-inp-2" type="text">]</span>
+                        <br /><br />
+                    </div>
+
+
+                    <div class="tab auto-next">
+                        <p class="timer">20</p>
+                        <h6 style="text-align: right">1 Marks</h6>
+                        <h3>Please Add Marks</h3>
+                        <h5>Please copy this picture.</h5>
+                        <img src="images/diagram.png" /><br /><br />
+                        <span class="custom-input">[<input id="nnnn-inp-3" type="text">]</span>
+                        <br /><br />
+                    </div>
+
+
+
+                    <!-- <div class="thanks-message text-center" id="text-message"> <img
+                            src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
+                        <h3>You have submitted the Quiz!</h3> <span>Thanks for your valuable information</span>
+                    </div> -->
+                    <div style="overflow:auto;" id="nextprevious">
+                        <div style="float:right;"><button type="button" id="nextBtn" onclick="nextPrev(1)"><i
+                                    class="fa fa-angle-double-right">NEXT >></i></button> </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
+
+
+
+    <script>
+        var currentTab = 0;
+        var marks = 0;
+        var sentence = ''
+        var a_counter = 0
+        var i = null;
+        var counter = 0
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            showTab(currentTab);
+
+        });
+
+        function showTab(n) {
+            var x = document.getElementsByClassName("tab");
+            x[n].style.display = "block";
+            runInterval()
+            if (n == 0) {
+                // document.getElementById("prevBtn").style.display = "none";
+            } else {
+                // document.getElementById("prevBtn").style.display = "inline";
+            }
+            // if (n == (x.length - 1)) {
+            //     document.getElementById("nextBtn").innerHTML = '<i class="fa fa-angle-double-right"></i>';
+            // } else {
+            //     document.getElementById("nextBtn").innerHTML = '<i class="fa fa-angle-double-right"></i>';
+            // }
+            fixStepIndicator(n)
+
+        }
+
+        function nextPrev(n) {
+
+            try {
+                clearIntervalI(currentTab)
+            } catch (err) {
+                console.log(err)
+            }
+
+            var x = document.getElementsByClassName("tab");
+            if (n == 1 && !validateForm()) return false;
+
+            // alert(currentTab);
+            switch (currentTab) {
+                case 0:
+                    var v1 = $("#v-inp-1")
+                    var v2 = $("#v-inp-2")
+                    var v3 = $("#v-inp-3")
+                    marks = marks + ((v1.val().toLowerCase() == v1.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((v2.val().toLowerCase() == v2.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((v3.val().toLowerCase() == v3.attr('data-res').toLowerCase()) ? 1 : 0)
+
+                    break;
+                case 1:
+                    var v1 = $("#n-inp-1")
+                    var v2 = $("#n-inp-2")
+                    var v3 = $("#n-inp-3")
+                    marks = marks + ((v1.val().toLowerCase() == v1.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((v2.val().toLowerCase() == v2.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((v3.val().toLowerCase() == v3.attr('data-res').toLowerCase()) ? 1 : 0)
+                    break
+
+                case 3:
+                    var v1 = $("#a-inp-1")
+                    var v2 = $("#a-inp-2")
+                    marks = marks + ((v1.val().toLowerCase() == v1.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((v2.val().toLowerCase() == v2.attr('data-res').toLowerCase()) ? 1 : 0)
+
+                    if (a_counter > 8) {
+                        marks += 1
+                    }
+
+                    var a1 = $("#at-inp-1")
+                    var a2 = $("#at-inp-2")
+                    var a3 = $("#at-inp-3")
+                    var a4 = $("#at-inp-4")
+                    var a5 = $("#at-inp-5")
+
+                    var ans_counter = 0;
+                    ans_counter = ans_counter + ((a1.val().toLowerCase() == a1.attr('data-res').toLowerCase()) ? 1 : 0)
+                    ans_counter = ans_counter + ((a2.val().toLowerCase() == a2.attr('data-res').toLowerCase()) ? 1 : 0)
+                    ans_counter = ans_counter + ((a3.val().toLowerCase() == a3.attr('data-res').toLowerCase()) ? 1 : 0)
+                    ans_counter = ans_counter + ((a4.val().toLowerCase() == a4.attr('data-res').toLowerCase()) ? 1 : 0)
+                    ans_counter = ans_counter + ((a5.val().toLowerCase() == a5.attr('data-res').toLowerCase()) ? 1 : 0)
+
+                    if (ans_counter > 3) marks += 3
+                    else if (ans_counter > 1) marks += 2
+                    else if (ans_counter > 0) marks += 1
+
+
+                    break
+
+                case 4:
+                    var v1 = $("#l-inp-1")
+                    var v2 = $("#l-inp-2")
+                    marks = marks + ((v1.val().toLowerCase().trim() == v1.attr('data-res').toLowerCase().trim()) ? 1 :
+                        0)
+                    marks = marks + ((v2.val().toLowerCase().trim() == v2.attr('data-res').toLowerCase().trim()) ? 1 :
+                        0)
+                    break;
+
+                case 5:
+                    var v1 = $("#aa-inp-1")
+                    var v2 = $("#aa-inp-2")
+                    marks = marks + ((v1.val().toLowerCase().trim() == v1.attr('data-res').toLowerCase().trim()) ? 1 :
+                        0)
+                    marks = marks + ((v2.val().toLowerCase().trim() == v2.attr('data-res').toLowerCase().trim()) ? 1 :
+                        0)
+                    break;
+
+                case 6:
+                    var a1 = $("#dr-inp-1")
+                    var a2 = $("#dr-inp-2")
+                    var a3 = $("#dr-inp-3")
+                    var a4 = $("#dr-inp-4")
+                    var a5 = $("#dr-inp-5")
+
+                    marks = marks + ((a1.val().toLowerCase() == a1.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((a2.val().toLowerCase() == a2.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((a3.val().toLowerCase() == a3.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((a4.val().toLowerCase() == a4.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((a5.val().toLowerCase() == a5.attr('data-res').toLowerCase()) ? 1 : 0)
+
+                    break
+
+
+                case 7:
+                    var a1 = $("#o-inp-1")
+                    var a2 = $("#o-inp-2")
+                    var a3 = $("#o-inp-3")
+                    var a4 = $("#o-inp-4")
+                    var a5 = $("#o-inp-5")
+                    var a6 = $("#o-inp-6")
+
+
+
+                    marks = marks + ((a1.val().toLowerCase().trim() == '<%= currentUser.date.toLowerCase() %>') ? 1 : 0)
+                    marks = marks + ((a2.val().toLowerCase().trim() == '<%= currentUser.month %>') ? 1 : 0)
+                    marks = marks + ((a3.val().toLowerCase().trim() == '<%= currentUser.year %>') ? 1 : 0)
+                    marks = marks + ((a4.val().toLowerCase().trim() == '<%= currentUser.name.toLowerCase() %>') ? 1 : 0)
+                    marks = marks + ((a5.val().toLowerCase().trim() == '<%= currentUser.place.toLowerCase() %>') ? 1 :
+                        0)
+                    marks = marks + ((a6.val().toLowerCase().trim() == '<%= currentUser.city.toLowerCase() %>') ? 1 : 0)
+                    break
+
+                case 8:
+                    var a1 = $("#oo-inp-1")
+                    var a2 = $("#oo-inp-2")
+                    var a3 = $("#oo-inp-3")
+                    var a4 = $("#oo-inp-4")
+                    var a5 = $("#oo-inp-5")
+
+
+
+
+                    marks = marks + ((a1.val().toLowerCase().trim() == '<%= currentUser.year %>') ? 1 : 0)
+                    marks = marks + 1
+                    marks = marks + ((a3.val().toLowerCase().trim() == '<%= currentUser.date.toLowerCase() %>') ? 1 : 0)
+                    marks = marks + 1
+                    marks = marks + ((a5.val().toLowerCase().trim() == '<%= currentUser.month %>') ? 1 : 0)
+
+
+                    break
+
+                case 9:
+                    // var a1 = $("#ooo-inp-1")
+                    var a2 = $("#ooo-inp-2")
+                    var a3 = $("#ooo-inp-3")
+                    var a4 = $("#ooo-inp-4")
+                    var a5 = $("#ooo-inp-5")
+
+
+
+
+                    // marks = marks + 1
+                    marks = marks + 1
+                    marks = marks + 1
+                    marks = marks + ((a4.val().toLowerCase().trim() == '<%= currentUser.city.toLowerCase() %>') ? 1 : 0)
+                    marks = marks + 1
+                    marks = marks + 1
+
+
+
+
+
+                    break
+
+                case 10:
+                    var a1 = $("#vv-inp-1")
+                    var a2 = $("#vv-inp-2")
+                    var a3 = $("#vv-inp-3")
+
+
+                    marks = marks + ((a1.val().toLowerCase() == a1.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((a2.val().toLowerCase() == a2.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((a3.val().toLowerCase() == a3.attr('data-res').toLowerCase()) ? 1 : 0)
+
+
+
+                    break
+
+                case 12:
+                    var a1 = $("#vvv-inp-1")
+                    var a2 = $("#vvv-inp-2")
+                    var a3 = $("#vvv-inp-3")
+
+
+                    marks = marks + ((a1.val().toLowerCase() == a1.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((a2.val().toLowerCase() == a2.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((a3.val().toLowerCase() == a3.attr('data-res').toLowerCase()) ? 1 : 0)
+
+
+
+                    break
+
+                case 11:
+                    // var a1 = $("#attt-inp-1")
+                    var a2 = $("#attt-inp-2")
+                    var a3 = $("#attt-inp-3")
+                    var a4 = $("#attt-inp-4")
+                    var a5 = $("#attt-inp-5")
+
+
+                    // marks = marks + ((a1.val().toLowerCase() == a1.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((a2.val().toLowerCase() == a2.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((a3.val().toLowerCase() == a3.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((a4.val().toLowerCase() == a4.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((a5.val().toLowerCase() == a5.attr('data-res').toLowerCase()) ? 1 : 0)
+
+                    var aa1 = $("#atttt-inp-1")
+                    marks = marks + ((aa1.val().toLowerCase() == aa1.attr('data-res').toLowerCase()) ? 1 : 0)
+
+
+                    break
+
+
+                case 13:
+                    var a1 = $("#nnn-inp-1")
+                    var a2 = $("#nnn-inp-2")
+
+
+
+                    marks = marks + ((a1.val().toLowerCase() == a1.attr('data-res').toLowerCase()) ? 1 : 0)
+                    marks = marks + ((a2.val().toLowerCase() == a2.attr('data-res').toLowerCase()) ? 1 : 0)
+                    
+
+                    break
+
+                
+
+                case 16:
+                    // logic about sentence
+                    sentence = $("#nnnnn-inp-1").val()
+
+                    break
+
+
+                case 18:
+                    // take paper
+
+                    var a1 = $("#nnnn-inp-1")
+                    if (a1.val() < 0 || a1.val() > 3) return alert("Please enter the correct value")
+
+                    marks = marks + Number(a1.val())
+
+                    break
+
+                case 19:
+                    // "Please read this and do what it says" (Written instruction is close your eyes).
+
+
+                    var a1 = $("#nnnn-inp-2")
+                    if (a1.val() < 0 || a1.val() > 1) return alert("Please enter the correct value")
+
+                    marks = marks + Number(a1.val())
+
+                    break
+
+                case 20:
+                    // "Please copy this picture.
+
+                    var a1 = $("#nnnn-inp-3")
+                    if (a1.val() < 0 || a1.val() > 1) return alert("Please enter the correct value")
+
+                    marks = marks + Number(a1.val())
+
+                    completeQuiz(marks);
+                    break
+                default:
+                    break;
+            }
+
+            // console.log("your marks are", marks)
+
+
+            x[currentTab].style.display = "none";
+            currentTab = currentTab + n;
+            if (currentTab >= x.length) {
+
+                // document.getElementById("nextprevious").style.display = "none";
+                document.getElementById("all-steps").style.display = "none";
+                document.getElementById("register").style.display = "none";
+                document.getElementById("text-message").style.display = "block";
+
+
+
+            }
+            showTab(currentTab);
+        }
+
+        function completeQuiz(marks) {
+            $.post("/completequiz", {
+                marks,
+                sentence
+            }, function (result) {
+                location.replace('/page3')
+            });
+        }
+
+        function validateForm() {
+            var x, y, i, valid = true;
+            x = document.getElementsByClassName("tab");
+            y = x[currentTab].getElementsByTagName("input");
+            for (i = 0; i < y.length; i++) {
+                if (y[i].value == "") {
+                    y[i].className += " invalid";
+                    valid = false;
+                }
+            }
+            if (valid) {
+                document.getElementsByClassName("step")[currentTab].className += " finish";
+            }
+            return valid;
+        }
+
+        function fixStepIndicator(n) {
+            var i, x = document.getElementsByClassName("step");
+            for (i = 0; i < x.length; i++) {
+                x[i].className = x[i].className.replace(" active", "");
+            }
+            x[n].className += " active";
+        }
+
+
+        function runInterval() {
+            var ct = currentTab
+            counter = 30
+            $('.should-show').addClass('d-n')
+            $('.should-hide').removeClass('d-n')
+            $('.timer').removeClass('d-n')
+            // $('#nextBtn').addClass('d-n')
+            i = setInterval(function () {
+                $('.timer').text(counter.toString())
+                counter--
+
+            }, 1000);
+            setTimeout(function () {
+                clearIntervalI(ct)
+                // $('#nextBtn').removeClass('d-n')
+            }, 30000);
+        }
+
+        function clearIntervalI(ct) {
+            // counter = 0
+            if (ct !== currentTab) return
+            clearInterval(i);
+            $('.timer').text('30')
+            $('.timer').addClass('d-n')
+            $('.should-show').removeClass('d-n')
+            $('.should-hide').addClass('d-n')
+        }
+
+        $(document).ready(function () {
+            // runInterval()
+        });
+
+
+
+        $('.attention .two span').click(function () {
+            var el = $(this)
+            var text = $(el).text()
+            if (text != 'A' || el.css('color') == 'green') return
+
+            a_counter++
+            $(this).css({
+                'color': 'green',
+                'fontWeight': 'bold'
+            })
+        })
+    </script>
+</body>
+
+</html>

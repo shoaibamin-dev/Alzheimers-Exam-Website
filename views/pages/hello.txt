@@ -1,0 +1,263 @@
+  <div class="tab">
+                        <p class="timer">30</p>
+                        <h2 class="text-center my-3">VISIOPATIAL/EXECUTIVE</h2>
+                        <h5>See the pictures below</h5>
+                        <h5 class="should-show d-n">What do you see?</h5>
+                        <div class="row gx-5 naming">
+                            <div class="col-4">
+                                <img class="should-hide" src="images/cube.png" /><br /><br />
+                                <span class="custom-input">[<input id="v-inp-1" data-res="cube" type="text">]</span>
+                            </div>
+                            <div class="col-4">
+                                <img class="should-hide" src="images/parallelogram.jpg" /><br /><br />
+                                <span class="custom-input">[<input id="v-inp-2" data-res="parallelogram"
+                                        type="text">]</span>
+                            </div>
+                            <div class="col-4">
+                                <img class="should-hide" src="images/rhombus.jpg" /><br /><br />
+                                <span class="custom-input">[<input id="v-inp-3" data-res="rhombus" type="text">]</span>
+                            </div>
+                        </div>
+                        <br /><br />
+                    </div>
+                    <div class="tab">
+                        <h2 class="text-center my-3">NAMING</h2>
+                        <div class="row gx-5 naming">
+                            <div class="col-4">
+                                <img src="images/lion.png" /><br /><br />
+                                <span class="custom-input">[<input id="n-inp-1" data-res="lion" type="text">]</span>
+                            </div>
+                            <div class="col-4">
+                                <img src="images/hippo.jpeg" /><br /><br />
+                                <span class="custom-input">[<input id="n-inp-2" data-res="hippopotamus"
+                                        type="text">]</span>
+                            </div>
+                            <div class="col-4">
+                                <img src="images/camel2.png" /><br /><br />
+                                <span class="custom-input">[<input id="n-inp-3" data-res="camel" type="text">]</span>
+                            </div>
+                        </div>
+                        <br /><br />
+                    </div>
+                    <div class="tab">
+                        <p class="timer">30</p>
+                        <h2 class="text-center my-3">MEMORY</h2>
+                        <div class="row memory">
+                            <div class="col-4">
+                                <p>Read list of words, subject must repeat them. Do 2 trials, even if 1st trial is
+                                    successful. Do a recall after 5 minutes. </p>
+                            </div>
+                            <div class="col-8">
+                                <table class="custom-input">
+                                    <tr>
+                                        <td></td>
+                                        <td><span class="should-hide">FACE</span></td>
+                                        <td><span class="should-hide">VELVET</span></td>
+                                        <td><span class="should-hide">MOSQUE</span></td>
+                                        <td><span class="should-hide">FLOWER</span></td>
+                                        <td><span class="should-hide">RED</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>1st trial</td>
+                                        <td><input id="m-inp-1" data-res="1" type="text"></td>
+                                        <td><input id="m-inp-2" data-res="2" type="text"></td>
+                                        <td><input id="m-inp-3" data-res="3" type="text"></td>
+                                        <td><input id="m-inp-4" data-res="4" type="text"></td>
+                                        <td><input id="m-inp-5" data-res="5" type="text"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>2nd trial</td>
+                                        <td><input id="mm-inp-1" data-res="1" type="text"></td>
+                                        <td><input id="mm-inp-2" data-res="2" type="text"></td>
+                                        <td><input id="mm-inp-3" data-res="3" type="text"></td>
+                                        <td><input id="mm-inp-4" data-res="4" type="text"></td>
+                                        <td><input id="mm-inp-5" data-res="5" type="text"></td>
+                                    </tr>
+
+
+
+
+                                </table>
+                            </div>
+                        </div>
+
+                        <br /><br />
+                    </div>
+                    <div class="tab attention">
+
+                        <h2 class="text-center my-3">ATTENTION</h2>
+
+                        <div class="row">
+                            <div class="col-4">
+                                Read list of digits (1 digit/ sec.):
+                            </div>
+                            <div class="col-5">
+                                <p>Subject has to repeat them in the following order.</p>
+                                <p>Subject has to repeat them in the backward order.</p>
+                            </div>
+                            <div class="col-3">
+                                <p class="custom-input text-left">[<input id="a-inp-1" data-res="21854"
+                                        type="text">]&nbsp;&nbsp;2&nbsp;&nbsp;1&nbsp;&nbsp;8&nbsp;&nbsp;5&nbsp;&nbsp;4
+                                </p>
+                                <br />
+                                <p class="custom-input text-left">[<input id="a-inp-2" data-res="247"
+                                        type="text">]&nbsp;&nbsp;7&nbsp;&nbsp;4&nbsp;&nbsp;2</p>
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div class="two">
+                            <p>Read list of letters, the subject must tap with his hand at each letter A. No points if ≥
+                                2 errors</p>
+                            <p>
+                                &nbsp;&nbsp;<span>F</span>&nbsp;<span>B</span>&nbsp;<span>C</span>&nbsp;<span>M</span>&nbsp;<span>N</span>&nbsp;<span>A</span>&nbsp;<span>A</span>&nbsp;<span>J</span>&nbsp;<span>K</span>&nbsp;<span>L</span>&nbsp;<span>B</span>&nbsp;<span>A</span>&nbsp;<span>F</span>&nbsp;<span>A</span>&nbsp;<span>K</span>&nbsp;<span>D</span>&nbsp;<span>E</span>&nbsp;<span>A</span>&nbsp;<span>A</span>&nbsp;<span>A</span>&nbsp;<span>J</span>&nbsp;<span>A</span>&nbsp;<span>M</span>&nbsp;<span>O</span>&nbsp;<span>F</span>&nbsp;<span>A</span>&nbsp;<span>A</span>&nbsp;<span>B</span>
+                            </p>
+                        </div>
+
+                        <hr />
+
+                        <div class="row three">
+                            <div class="col-3">
+                                <p>Seriel 7 subtraction starting at 100</p>
+                            </div>
+                            <div class="col-9">
+                                <span>
+                                    <!-- [<input type="text" id="at-inp-1" data-res="84">]&nbsp;&nbsp;91 -->
+                                    [<input type="text" id="at-inp-1" data-res="93">]&nbsp;&nbsp;
+                                </span>
+                                <span>
+                                    <!-- [<input type="text" id="at-inp-2" data-res="69">]&nbsp;&nbsp;76 -->
+                                    [<input type="text" id="at-inp-2" data-res="86">]&nbsp;&nbsp;
+                                </span>
+                                <span>
+                                    <!-- [<input type="text" id="at-inp-3" data-res="82">]&nbsp;&nbsp;89 -->
+                                    [<input type="text" id="at-inp-3" data-res="79">]&nbsp;&nbsp;
+                                </span>
+                                <span>
+                                    <!-- [<input type="text" id="at-inp-4" data-res="65">]&nbsp;&nbsp;72 -->
+                                    [<input type="text" id="at-inp-4" data-res="72">]&nbsp;&nbsp;
+                                </span>
+                                <span>
+                                    [<input type="text" id="at-inp-5" data-res="65">]&nbsp;&nbsp;
+                                    <!-- [<input type="text" id="at-inp-5" data-res="58">]&nbsp;&nbsp;65 -->
+                                </span>
+                            </div>
+                        </div>
+                        <p style="text-align: right;">4 or 5 subtractions:&nbsp;&nbsp;<span>3 pts</span>,&nbsp;&nbsp; 2
+                            or 3
+                            correct:&nbsp;&nbsp;<span>2 pts</span>&nbsp;&nbsp;1 correct:&nbsp;&nbsp;<span>1
+                                pt</span>&nbsp;&nbsp;0
+                            correct:&nbsp;&nbsp;<span>0 pt</span></p>
+
+                        <br /><br />
+
+                    </div>
+                    <div class="tab language">
+                        <p class="timer">30</p>
+                        <h2 class="text-center my-3">LANGUAGE</h2>
+                        <h5>Repeat:</h5>
+                        <br />
+                        <br />
+                        <p class="custom-input "><span class="should-hide">I only know that John is one to help
+                                today.</span><span class="mx-2">[<input id="l-inp-1"
+                                    data-res="I only know that John is one to help today." type="text">]</span></p>
+                        <br />
+                        <br />
+                        <p class="custom-input"><span class="should-hide">The cat always hids under the couch when dogs
+                                were in the room.</span> <span class="mx-2">[<input id="l-inp-2"
+                                    data-res="The cat always hids under the couch when dogs were in the room."
+                                    type="text">]</span></p>
+
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+                    <div class="tab abstraction" style="font-size: 13.5px; ">
+                        <h2 class="text-center my-3">ABSTRACTION</h2>
+                        <p class="custom-input text-center">Similarity between e.g. banana - orange = fruit
+                            &nbsp;&nbsp;<span class="mx-2">[<input type="text" id="aa-inp-1" data-res="vehicle">]</span>
+                            train - bicycle
+                            &nbsp;&nbsp;<span class="mx-2">[<input type="text" id="aa-inp-2" data-res="measure">]</span>
+                            watch - ruler</p>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+
+                    <div class="tab delayed-recall" style="font-size: 13.5px; ">
+                        <h2 class="text-center my-3">DELAYED RECALL</h2>
+
+                        <div class="row">
+                            <div class="col-3">
+                                <p>Has to recall words</p>
+                                <h5>WITH NO CLUE</h5>
+                            </div>
+                            <div class="col-7">
+                                <table class="custom-input">
+                                    <tr>
+                                        <td>
+                                            <h5>FLOWER</h5>
+                                            [<input id="dr-inp-1" data-res="4" type="text">]
+                                        </td>
+                                        <td>
+                                            <h5>MOSQUE</h5>
+                                            [<input id="dr-inp-2" data-res="3" type="text">]
+                                        </td>
+                                        <td>
+                                            <h5>RED</h5>
+                                            [<input id="dr-inp-3" data-res="5" type="text">]
+                                        </td>
+                                        <td>
+                                            <h5>FACE</h5>
+                                            [<input id="dr-inp-4" data-res="1" type="text">]
+                                        </td>
+                                        <td>
+                                            <h5>VELVET</h5>
+                                            [<input id="dr-inp-5" data-res="2" type="text">]
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-2">
+                                <p>Points for UNCLUED recall only</p>
+                            </div>
+                        </div>
+
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+
+                    <div class="tab attention attention-2" style="font-size: 13.5px; ">
+                        <h2 class="text-center my-3">ORIENTATION</h2>
+                        <span>
+                            [<input id="o-inp-1" type="text">]&nbsp;&nbsp;Date
+                        </span>
+                        <span>
+                            [<input id="o-inp-2" type="text">]&nbsp;&nbsp;Month
+                        </span>
+                        <span>
+                            [<input id="o-inp-3" type="text">]&nbsp;&nbsp;Year
+                        </span>
+                        <span>
+                            [<input id="o-inp-4" type="text">]&nbsp;&nbsp;Name
+                        </span>
+                        <span>
+                            [<input id="o-inp-5" type="text">]&nbsp;&nbsp;Place
+                        </span>
+                        <span>
+                            [<input id="o-inp-6" type="text">]&nbsp;&nbsp;City
+                        </span>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
